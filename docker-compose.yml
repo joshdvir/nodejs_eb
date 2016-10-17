@@ -1,0 +1,8 @@
+
+nodeapp:
+  build: .
+  command: tail -f /dev/null
+  ports:
+    - "3000:3000"
+  volumes:
+    - .:/opt/src
