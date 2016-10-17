@@ -1,6 +1,8 @@
 # deploy.sh
 #! /bin/bash
 
+docker push $DOCKER_REPO:$CIRCLE_BUILD_NUM
+
 # Create new Elastic Beanstalk version
 export NODE_ENV=production
 ZIP_FILE=$CIRCLE_BUILD_NUM-$SERVICE_NAME.zip
