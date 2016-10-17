@@ -1,0 +1,4 @@
+
+commands:
+  change_hostname:
+    command: "echo \"<SERVICE_NAME>-<ENV>-`curl http://169.254.169.254/latest/meta-data/instance-id`\" > /proc/sys/kernel/hostname"

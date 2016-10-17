@@ -9,8 +9,9 @@ machine:
     BUCKET_FOLDER: node_test
     REGION: eu-west-1
     DOCKER_REPO: joshdvir/node_test
-    APPLICATION_NAME: 
+    APPLICATION_NAME: node_test
     SERVICE_NAME: node_test
+    ENVIRONMENT_NAME: prod-node-test
 
 dependencies:
   pre:
