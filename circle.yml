@@ -11,7 +11,7 @@ machine:
     DOCKER_REPO: joshdvir/node_test
     APPLICATION_NAME: node_test
     SERVICE_NAME: node_test
-    ENVIRONMENT_NAME: prod-node-test
+    ENVIRONMENT_NAME: prod-node-tes
 
 dependencies:
   pre:
