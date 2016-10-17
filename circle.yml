@@ -1,0 +1,32 @@
+machine:
+  python:
+    version: 2.7.9
+  services:
+    - docker
+  environment:
+    EB_BUCKET: joshdvir-devops
+    DOCKERRUN_FILE: Dockerrun.aws.json
+    BUCKET_FOLDER: node_test
+    REGION: eu-west-1
+    DOCKER_REPO: joshdvir/node_test
+    APPLICATION_NAME: 
+    SERVICE_NAME: node_test
+
+dependencies:
+  pre:
+    - docker login -e $REGISTRY_EMAIL -u $REGISTRY_USER -p $REGISTRY_PASS
+
+  override:
+    - docker build -t $DOCKER_REPO:$CIRCLE_BUILD_NUM .
+
+test:
+  override:
+    - docker run -it $DOCKER_REPO:$CIRCLE_BUILD_NUM npm test
+
+deployment:
+  aws_eb:
+    branch: [master]
+    commands:
+      - sudo pip install awscli
+      - ./deploy.sh
+
